@@ -1,0 +1,10 @@
+.course-content ul.evoke {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.course-content ul.evoke li.section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
