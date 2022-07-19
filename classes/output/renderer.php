@@ -73,6 +73,12 @@ class renderer extends section_renderer {
                 return '';
             }
 
+            if ($this->page->pagelayout == 'incourse' && !has_capability('moodle/course:update', $this->page->context)) {
+                return $this->render_from_template('format_evoke/incourse_courseindex', [
+                    'section' => $this->page->cm->section
+                ]);
+            }
+
             include_course_editor($format);
 
             return $this->render_from_template('core_courseformat/local/courseindex/drawer', []);
