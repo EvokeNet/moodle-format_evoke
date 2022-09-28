@@ -63,6 +63,10 @@ class renderer extends section_renderer {
      * @return String the course index HTML.
      */
     public function course_index_drawer(course_format $format): ?String {
+        if (isguestuser() || !is_enrolled(\context_course::instance($format->get_courseid()))) {
+            return '';
+        }
+
         if ($format->uses_course_index()) {
             $course = $format->get_course();
 

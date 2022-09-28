@@ -8,3 +8,79 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+.format-evoke .courseheader {
+    min-height: 200px;
+    margin-bottom: 1rem;
+}
+
+.format-evoke figure {
+    margin: 0;
+}
+
+.format-evoke .w-full {
+    width: 100%;
+}
+
+.format-evoke .h-full {
+    height: 100%;
+}
+
+.format-evoke .object-cover {
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.format-evoke .text-xs {
+    font-size: .8rem;
+}
+
+.format-evoke .h-px {
+    height: 1px;
+}
+
+.format-evoke .bg-grey-800 {
+    background-color: rgb(120 144 156 / 1);
+}
+
+.format-evoke .font-semibold {
+    font-weight: 600;
+}
+
+.format-evoke .gap-x-3 {
+    -moz-column-gap: .75rem;
+    column-gap: 0.75rem;
+}
+
+.format-evoke .font-light {
+    font-weight: 300;
+}
+
+.format-evoke .text-3xl {
+    font-size: 2.2rem;
+}
+
+.format-evoke .social-icon {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #0f47ad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.format-evoke .rightside .content {
+    line-height: 1.6;
+}
+
+#page-course-view-preview.format-evoke #page-header {
+    display: none;
+}
+
+#page-course-view-preview.format-evoke #topofscroll {
+    margin-top: 2rem;
+    padding-top: 30px;
+}

@@ -24,3 +24,12 @@ $string['showfromothers'] = 'Show mission';
 $string['privacy:metadata'] = 'The Evoke format plugin does not store any personal data.';
 
 $string['coursedisplay_hidesections'] = 'Hide sections for students';
+
+$string['syllabus'] = 'Course Syllabus';
+$string['syllabus_help'] = 'Detailed course syllabus';
+
+$string['dologin'] = 'Do login to enrol on this course';
+$string['takethiscourse'] = 'Take this course';
+$string['backtocourse'] = 'Back to course';
+$string['enrolnotavailable'] = 'Enrolment not available yet';
+$string['category'] = 'Category';
