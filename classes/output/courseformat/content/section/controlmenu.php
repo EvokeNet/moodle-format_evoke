@@ -12,6 +12,9 @@ namespace format_evoke\output\courseformat\content\section;
 
 use context_course;
 use core_courseformat\output\local\content\section\controlmenu as controlmenu_base;
+use moodle_url;
+use section_info;
+use cm_info;
 
 /**
  * Base class to render a course section menu.
@@ -27,6 +30,49 @@ class controlmenu extends controlmenu_base {
 
     /** @var section_info the course section class */
     protected $section;
+
+    /**
+     * Constructor.
+     *
+     * @param course_format $format the course format
+     * @param section_info $section the section info
+     * @param cm_info|null $mod the module info
+     * @param string $menuid the ID value for the menu
+     */
+    public function __construct($format, section_info $section, ?cm_info $mod = null, string $menuid = '') {
+        try {
+            // Call parent constructor first
+            parent::__construct($format, $section, $mod, $menuid);
+        } catch (\TypeError $e) {
+            // If parent constructor fails due to null baseurl, set up manually
+            $this->format = $format;
+            $this->section = $section;
+            $this->mod = $mod;
+            $this->menuid = $menuid;
+            $this->course = $format->get_course();
+            $this->coursecontext = $format->get_context();
+        }
+
+        // Ensure baseurl is always set to a valid URL
+        // Get the view URL and provide fallback if null
+        $viewurl = $format->get_view_url($format->get_sectionnum(), ['navigation' => true]);
+        
+        if ($viewurl === null) {
+            $course = $format->get_course();
+            $sectionnum = $format->get_sectionnum();
+            if ($sectionnum !== null) {
+                $viewurl = new moodle_url('/course/view.php', [
+                    'id' => $course->id,
+                    'section' => $sectionnum
+                ]);
+            } else {
+                $viewurl = new moodle_url('/course/view.php', ['id' => $course->id]);
+            }
+        }
+
+        // Set the baseurl using the public method
+        $this->set_baseurl($viewurl);
+    }
 
     /**
      * Generate the edit control items of a section.
