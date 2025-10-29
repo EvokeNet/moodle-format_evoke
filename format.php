@@ -42,7 +42,7 @@ if ($page == 'preview') {
     echo $renderer->render($widget);
 } else {
     if (!empty($displaysection)) {
-        $format->set_section_number($displaysection);
+        $format->set_sectionnum($displaysection);
     }
 
     if ($course->coursedisplay != format_evoke::COURSE_DISPLAY_HIDESECTIONS || has_capability('moodle/course:update', $context)) {
